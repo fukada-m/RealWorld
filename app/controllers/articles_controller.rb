@@ -32,6 +32,17 @@ class ArticlesController < ApplicationController
             render json: { errors: "該当する記事はありませんでした" }, status: :unprocessable_entity
         end
     end
+
+    def destroy
+        @article = Article.find_by(slug: params[:slug])
+        if @article
+            @article.destroy
+            render json: {status: :ok}
+        else
+            render json: {errors: "該当する記事はありませんでした。"}, status: :unprocessable_entity
+        end
+    end
+
     private
 
     def update_article(title)

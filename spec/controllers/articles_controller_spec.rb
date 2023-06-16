@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe ArticlesController, type: :controller do
+    describe "create_slug" do
+        it '小文字にしてスペースをハイフンに変えて返すメソッド' do
+            @controller = ArticlesController.new
+            slug = controller.send(:create_slug, "How to train your dragon")
+            expect(slug).to eq("how-to-train-your-dragon")
+        end
+    end
+
     describe "POST #create" do
         it "記事が作成できた場合はsuccessを返す" do
             post :create, params: { article: FactoryBot.attributes_for(:article) }
@@ -13,19 +21,11 @@ RSpec.describe ArticlesController, type: :controller do
         end
     end
     
+
     describe "最初に記事を一つ登録しておく" do
         before do
             @article = FactoryBot.create(:article)
         end
-        
-        describe "create_slug" do
-            @controller = ArticlesController.new
-            it '小文字にしてスペースをハイフンに変えて返す' do
-                slug = controller.send(:create_slug, @article.title)
-                expect(slug).to eq(@article.slug)
-            end
-        end
-        
 
         describe "GET #show" do
             it "当てはまる記事があった場合はsuccessレスポンスを返す" do
@@ -33,8 +33,8 @@ RSpec.describe ArticlesController, type: :controller do
                 expect(response).to have_http_status(:success)
             end
 
-            it "当てはまる記事がなかった場合はエラーレスポンスを返す" do
-                get :show, params: { slug: "test-message" }
+            it "記事が見つからなかった場合はエラーレスポンスを返す" do
+                get :show, params: { slug: "miss" }
                 expect(response).to have_http_status(:unprocessable_entity)
             end
         end
@@ -45,8 +45,20 @@ RSpec.describe ArticlesController, type: :controller do
                 expect(response).to have_http_status(:success)
             end
 
-            it "記事が更新できなかった場合はエラーレスポンスを返す" do
-                get :show, params: { slug: "test-message", article: { title: "Did you train your dragon" } }
+            it "記事が見つからなかった場合はエラーレスポンスを返す" do
+                get :show, params: { slug: "miss", article: { title: "Did you train your dragon" } }
+                expect(response).to have_http_status(:unprocessable_entity)
+            end
+        end
+
+        describe "DELETE #destroy" do
+            it "記事が削除できた場合はsuccessレスポンスを返す" do
+                delete :destroy, params: {slug: @article.slug}
+                expect(response).to have_http_status(:success)
+            end
+
+            it "記事が見つからなかった場合はエラーレスポンスを返す" do
+                delete :destroy, params: {slug: "miss"}
                 expect(response).to have_http_status(:unprocessable_entity)
             end
         end

@@ -47,7 +47,8 @@ class ArticlesController < ApplicationController
   private
 
   def update_article
-    @article.slug = @body['title']
+    @article.title = @body['title']
+    @article.slug = create_slug(@body['title'])
     @article.save
   end
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: 'application#hello'
   post 'api/articles', to: 'articles#create'
   get 'api/articles/:slug', to: 'articles#show'
   put 'api/articles/:slug', to: 'articles#update'

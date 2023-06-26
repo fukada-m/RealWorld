@@ -40,7 +40,7 @@ RSpec.describe ArticlesController, type: :controller do
 
     describe 'PUT #update' do
       it '記事が更新できた場合はsuccessレスポンスを返す' do
-        put :update, params: { slug: @article.slug, article: { title: 'Did you train your dragon?' } }
+        put :update, params: { slug: @article.slug, article: { title: 'Did you train your dragon' } }
         expect(response).to have_http_status(:success)
       end
 

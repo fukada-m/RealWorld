@@ -75,6 +75,6 @@ group :test do
   gem "webdrivers"
 end
 
-group : production do
+group :production do
   gem "pg", "~> 1.4.6"
 end

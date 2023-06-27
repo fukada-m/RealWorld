@@ -49,11 +49,12 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-            # 最新のリポジトリを取得し、RealWorldを再起動する
+            # Load bashrc to make sure rbenv is initialized
+            . ~/.bashrc
+            # Fetch latest repository and restart RealWorld
             cd /home/ubuntu/RealWorld &&
             git fetch --all &&
             git reset --hard origin/main &&
-            sudo bundle install &&
+            bundle install &&
             sudo systemctl restart myapp
             '
-            

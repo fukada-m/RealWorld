@@ -1,4 +1,4 @@
-name: Test&Lint
+name: Test&Lint&Deploy
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  test&lint:
 
     runs-on: ubuntu-latest
 
@@ -27,3 +27,27 @@ jobs:
 
     - name: Run rubocop
       run: bundle exec rubocop
+  
+  deploy:
+    needs: test&lint
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy EC2
+        env:
+          PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
+          HOSTNAME : ${{ secrets.HOSTNAME  }}
+          USER_NAME : ${{ secrets.USER_NAME  }}
+        
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+            # 最新のリポジトリを取得し、既存のポート番号4567のプロセスを終了し、デタッチモードでアプリを起動する
+            cd /home/ubuntu/RealWorld &&
+            git fetch --all &&
+            git reset --hard origin/main &&
+            bundle install &&
+            systemctl restart myapp
+            '

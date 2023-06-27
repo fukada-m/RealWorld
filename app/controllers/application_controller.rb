@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   def hello
-    render html: '<h1>ゆのんちゃんかわいい</h1>'.html_safe
+    render html: '<h1>ゆのんちゃん、かわいい</h1>'.html_safe
   end
 end
 

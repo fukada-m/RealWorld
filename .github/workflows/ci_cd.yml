@@ -42,18 +42,22 @@ jobs:
           HOSTNAME : ${{ secrets.HOSTNAME  }}
           USER_NAME : ${{ secrets.USER_NAME  }}
         
-        run: |
-          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-            # Load .bashrc or .bash_profile
-            source ~/.bashrc || source ~/.bash_profile
-            cd /home/***/RealWorld &&
-            # Fetch latest repository and restart RealWorld
-            git fetch --all &&
-            git reset --hard origin/main &&
-            bundle install &&
-            sudo systemctl restart myapp
-          '
+      run: |
+        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+          # Load .bashrc or .bash_profile
+          source ~/.bashrc || source ~/.bash_profile
+          # Check rbenv status and bundle command location
+          echo "rbenv version: $(rbenv version)"
+          echo "bundle location: $(which bundle)"
+          cd /home/***/RealWorld &&
+          # Fetch latest repository and restart RealWorld
+          git fetch --all &&
+          git reset --hard origin/main &&
+          bundle install &&
+          sudo systemctl restart myapp
+        '
+
 
 
             

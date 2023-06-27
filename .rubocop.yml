@@ -1,0 +1,6 @@
+AllCops:
+  DisabledByDefault: true
+  SuggestExtensions: false
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/**/*'

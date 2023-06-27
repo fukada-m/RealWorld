@@ -49,8 +49,9 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+            gem install bundler &&
             # Load bashrc to make sure rbenv is initialized
-            . ~/.bashrc
+            . ~/.bashrc &&
             # Fetch latest repository and restart RealWorld
             cd /home/ubuntu/RealWorld &&
             git fetch --all &&

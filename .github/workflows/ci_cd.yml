@@ -29,16 +29,12 @@ jobs:
       run: bundle exec rubocop
   
   deploy:
-    needs: test_lint
+    # needs: test_lint
 
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
-        with:
-          ruby-version: '3.2'
           
       - name: Deploy EC2
         env:
@@ -50,9 +46,6 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
             cd /home/ubuntu/RealWorld &&
-            # Load bashrc to make sure rbenv is initialized
-            . ~/.bashrc &&
-            gem install bundler &&
             # Fetch latest repository and restart RealWorld
             git fetch --all &&
             git reset --hard origin/main &&

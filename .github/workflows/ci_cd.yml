@@ -56,7 +56,7 @@ jobs:
           git reset --hard origin/main &&
           bundle install &&
           sudo systemctl restart myapp
-        '
+          '
 
 
 

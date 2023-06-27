@@ -45,10 +45,15 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-            cd /home/ubuntu/RealWorld &&
+            # Load .bashrc or .bash_profile
+            source ~/.bashrc || source ~/.bash_profile
+            cd /home/***/RealWorld &&
             # Fetch latest repository and restart RealWorld
             git fetch --all &&
             git reset --hard origin/main &&
             bundle install &&
             sudo systemctl restart myapp
-            '
+          '
+
+
+            

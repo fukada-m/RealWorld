@@ -49,11 +49,11 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-            # 最新のリポジトリを取得し、既存のポート番号4567のプロセスを終了し、デタッチモードでアプリを起動する
+            # 最新のリポジトリを取得し、RealWorldを再起動する
             cd /home/ubuntu/RealWorld &&
             git fetch --all &&
             git reset --hard origin/main &&
-            bundle install &&
+            # bundle install &&
             systemctl restart myapp
             '
             

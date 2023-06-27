@@ -45,19 +45,19 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-            # Load .bashrc or .bash_profile
-            source ~/.bashrc || source ~/.bash_profile
-            rbenv rehash
-            # Check rbenv status and bundle command location
-            echo "rbenv version: $(rbenv version)"
-            echo "bundle location: $(which bundle)"
-            cd /home/***/RealWorld &&
-            # Fetch latest repository and restart RealWorld
-            git fetch --all &&
-            git reset --hard origin/main &&
-            bundle install &&
-            sudo systemctl restart myapp
-          '
+          export PATH="$HOME/.rbenv/bin:$PATH"
+          eval "$(rbenv init -)"
+          # Check rbenv status and bundle command location
+          echo "rbenv version: $(rbenv version)"
+          echo "bundle location: $(which bundle)"
+          cd /home/***/RealWorld &&
+          # Fetch latest repository and restart RealWorld
+          git fetch --all &&
+          git reset --hard origin/main &&
+          bundle install &&
+          sudo systemctl restart myapp
+        '
+
 
 
 

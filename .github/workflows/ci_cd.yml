@@ -53,7 +53,7 @@ jobs:
             cd /home/ubuntu/RealWorld &&
             git fetch --all &&
             git reset --hard origin/main &&
-            # bundle install &&
+            sudo bundle install &&
             sudo systemctl restart myapp
             '
             

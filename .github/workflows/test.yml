@@ -51,3 +51,4 @@ jobs:
             bundle install &&
             systemctl restart myapp
             '
+            

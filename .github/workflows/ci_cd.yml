@@ -54,6 +54,6 @@ jobs:
             git fetch --all &&
             git reset --hard origin/main &&
             # bundle install &&
-            systemctl restart myapp
+            sudo systemctl restart myapp
             '
             

@@ -47,6 +47,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
             # Load .bashrc or .bash_profile
             source ~/.bashrc || source ~/.bash_profile
+            rbenv rehash
             # Check rbenv status and bundle command location
             echo "rbenv version: $(rbenv version)"
             echo "bundle location: $(which bundle)"

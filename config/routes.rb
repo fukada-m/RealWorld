@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get '/', to: 'application#hello'
   post 'api/articles', to: 'articles#create'

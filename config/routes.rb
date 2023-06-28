@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get 'api/articles/:slug', to: 'articles#show'
   put 'api/articles/:slug', to: 'articles#update'
   delete 'api/articles/:slug', to: 'articles#destroy'
+
+  get 'error', to: 'application#error'
 end

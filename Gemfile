@@ -78,3 +78,6 @@ end
 group :production do
   gem 'pg', '~> 1.4.6'
 end
+
+gem 'sentry-ruby'
+gem 'sentry-rails'

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-28T03:52:03.843Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="su7bR8LUE-nzOIqHkeF3" version="21.5.0" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-28T06:29:04.423Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="FdIECesR_hKsmeHKwTs6" version="21.5.0" type="github">
   <diagram name="ページ1" id="iipsHcUKPTlbDsdFMyrd">
     <mxGraphModel dx="1781" dy="1684" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -40,21 +40,35 @@
         <mxCell id="4aGrap93ZYAkdd6068Os-8" value="Public subnet" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#248814;fillColor=#E9F3E6;verticalAlign=top;align=left;spacingLeft=30;fontColor=#248814;dashed=0;" vertex="1" parent="1">
           <mxGeometry x="190" y="-800" width="200" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="4aGrap93ZYAkdd6068Os-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-2" target="4aGrap93ZYAkdd6068Os-12">
+        <mxCell id="4aGrap93ZYAkdd6068Os-13" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-2" target="4aGrap93ZYAkdd6068Os-14">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="-960" as="targetPoint" />
+            <mxPoint x="430" y="-890" as="targetPoint" />
             <mxPoint x="190" y="-1060" as="sourcePoint" />
-            <Array as="points" />
+            <Array as="points">
+              <mxPoint x="680" y="-980" />
+              <mxPoint x="430" y="-980" />
+            </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="4aGrap93ZYAkdd6068Os-15" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-12" target="4aGrap93ZYAkdd6068Os-14">
+        <mxCell id="4aGrap93ZYAkdd6068Os-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-12" target="4aGrap93ZYAkdd6068Os-14">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4aGrap93ZYAkdd6068Os-33" value="Sentryでエラーを報告" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-12" target="4aGrap93ZYAkdd6068Os-23">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="4aGrap93ZYAkdd6068Os-33" value="Sentryでエラーを報告" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="4aGrap93ZYAkdd6068Os-23">
+          <mxGeometry x="-0.0457" relative="1" as="geometry">
+            <mxPoint x="280" y="-790" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="280" y="-1090" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="4aGrap93ZYAkdd6068Os-12" value="Amazon Route 53" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.route_53;" vertex="1" parent="1">
-          <mxGeometry x="390" y="-1125" width="80" height="110" as="geometry" />
+        <mxCell id="4aGrap93ZYAkdd6068Os-40" value="URLエラーの報告" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="-1070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4aGrap93ZYAkdd6068Os-12" value="Amazon Route 53&lt;br&gt;ヘルスチェック" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.route_53;" vertex="1" parent="1">
+          <mxGeometry x="330" y="-1132.5" width="80" height="125" as="geometry" />
         </mxCell>
         <mxCell id="4aGrap93ZYAkdd6068Os-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0.02;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-16" target="4aGrap93ZYAkdd6068Os-17">
           <mxGeometry relative="1" as="geometry" />
@@ -65,30 +79,30 @@
         <mxCell id="4aGrap93ZYAkdd6068Os-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-14" target="4aGrap93ZYAkdd6068Os-16">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4aGrap93ZYAkdd6068Os-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-14" target="4aGrap93ZYAkdd6068Os-16">
+        <mxCell id="4aGrap93ZYAkdd6068Os-21" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-14" target="4aGrap93ZYAkdd6068Os-16">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="4aGrap93ZYAkdd6068Os-25" value="ソースコードをアップ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-23" target="4aGrap93ZYAkdd6068Os-24">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="90" y="-965" />
-              <mxPoint x="35" y="-965" />
-              <mxPoint x="35" y="-865" />
+              <mxPoint x="50" y="-865" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="4aGrap93ZYAkdd6068Os-23" value="開発者" style="sketch=0;outlineConnect=0;gradientColor=none;fontColor=#545B64;strokeColor=none;fillColor=#879196;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.illustration_users;pointerEvents=1" vertex="1" parent="1">
-          <mxGeometry x="40" y="-1140" width="100" height="100" as="geometry" />
+          <mxGeometry x="20" y="-1140" width="100" height="100" as="geometry" />
         </mxCell>
         <mxCell id="4aGrap93ZYAkdd6068Os-26" value="CI/CD" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4aGrap93ZYAkdd6068Os-24" target="4aGrap93ZYAkdd6068Os-16">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="278" y="-840" />
+              <mxPoint x="60" y="-820" />
+              <mxPoint x="150" y="-820" />
+              <mxPoint x="150" y="-713" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="4aGrap93ZYAkdd6068Os-24" value="GitHub" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.github_code;pointerEvents=1;" vertex="1" parent="1">
-          <mxGeometry x="10" y="-890" width="50" height="50" as="geometry" />
+          <mxGeometry x="30" y="-890" width="50" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
